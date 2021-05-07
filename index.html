@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="reset.css" />
+
+    <script type="module" defer src="main.js"></script>
+    <script type="module" async src="./modules/geolocation.js"></script>
+
+    <title>Weather</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="weather-field">
+        <img class="menu-icon" src="./images/menu.png" alt="menu" srcset="" />
+        <img class="arrow-icon" src="./images/arrow.png" alt="" srcset="" />
+
+        <div class="weather-features">
+          <div class="weather-features--inner">
+            <div class="weather-features--info">
+              <div class="temperature-block">
+                <span class="temperature"></span>
+                <span class="temperature--range"></span>
+              </div> 
+              <div class="location">
+                <span class="location-city"></span>
+                <span class="location-date"></span>
+              </div>
+              <div class="condition">
+                <img class="condition-icon" src=""></img>
+                <span class="condition-type"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="weather-menu">
+          <div class="weather-menu--inner">
+            <div class="location-search">
+              <input type="text" placeholder="Add new location"/>
+              <img src="./images/find.png" alt="menu" srcset="" />
+              <div class="search-list">
+                <ul></ul>
+                <div class="info-block">No locations found</div>
+              </div>
+            </div>
+            <div class="city-block">
+              <ul class="location-list">
+                <li class="list-item active-location-item">
+                    <span>Current location</span> 
+                    <!-- <img src="./images/close.png" alt="close-icon"> -->
+                </li>
+
+              </ul>
+            </div>
+
+            <div class="geolocation-message" hidden>
+              If you want to see weather by your current location please allow site to access your location in settings.
+            </div>
+          </div>
+
+        </div>
+
+        <div class="weather-info">
+          <div class="weather-info--today">
+              <span class="weather-info--temperature">Temperature:</span>
+              <div class="weather-info--today-inner">
+                <div>
+                  <span>Feels like: 14</span>
+                  <span>Min: 14</span>
+                  <span>Max: 14</span>
+                </div>
+                <div>
+                  <span>Humidity: 14</span>
+                  <span>Pressure: 1414</span>
+                  <span>Wind speed: 23</span>
+                </div>
+              </div>
+          </div>
+          <div class="vertical-line"></div>
+
+          <div class="weather-info--week">
+            <div class="weather-info--headers">
+              <div class="header header-active">Hourly</div>
+              <div>|</div>
+              <div class="header">Daily</div>
+            </div>
+
+            <div class="weather-info--time">
+              <div class="weather-info--hourly">
+                <div class="hourly-block">
+                  <span>3</span>
+                  <img src="./images/clear-day.png" alt="" srcset="">
+                  <span>12</span>
+                </div>
+                <div class="hourly-block">
+                  <span>6</span>
+                  <img src="./images/clear-day.png" alt="" srcset="">
+                  <span>14</span>
+                </div>
+                <div class="hourly-block">
+                  <span>9</span>
+                  <img src="./images/clear-day.png" alt="" srcset="">
+                  <span>25</span>
+                </div>
+                <div class="hourly-block">
+                  <span>12</span>
+                  <img src="./images/clear-day.png" alt="" srcset="">
+                  <span>24</span>
+                </div>
+                <div class="hourly-block">
+                  <span>15</span>
+                  <img src="./images/clear-day.png" alt="" srcset="">
+                  <span>23</span>
+                </div>
+                <div class="hourly-block">
+                  <span>18</span>
+                  <img src="./images/clear-day.png" alt="" srcset="">
+                  <span>2</span>
+                </div>
+                <div class="hourly-block">
+                  <span>21</span>
+                  <img src="./images/clear-day.png" alt="" srcset="">
+                  <span>-3</span>
+                </div>
+                <div class="hourly-block">
+                  <span>24</span>
+                  <img src="./images/clear-day.png" alt="" srcset="">
+                  <span>3</span>
+                </div>
+              </div>
+              <!-- <div class="horizontal-line"></div> -->
+              <div class="weather-info--daily">
+                <div class="hourly-block">
+                  <span>Sun</span>
+                  <img src="./images/clear-day.png" alt="" srcset="">
+                  <span>12</span>
+                </div>
+                <div class="hourly-block">
+                  <span>Mon</span>
+                  <img src="./images/clear-day.png" alt="" srcset="">
+                  <span>14</span>
+                </div>
+                <div class="hourly-block">
+                  <span>Thu</span>
+                  <img src="./images/clear-day.png" alt="" srcset="">
+                  <span>25</span>
+                </div>
+                <div class="hourly-block">
+                  <span>Wed</span>
+                  <img src="./images/clear-day.png" alt="" srcset="">
+                  <span>24</span>
+                </div>
+                <div class="hourly-block">
+                  <span>Thi</span>
+                  <img src="./images/clear-day.png" alt="" srcset="">
+                  <span>23</span>
+                </div>
+                <div class="hourly-block">
+                  <span>Fri</span>
+                  <img src="./images/clear-day.png" alt="" srcset="">
+                  <span>2</span>
+                </div>
+                <div class="hourly-block">
+                  <span>Sat</span>
+                  <img src="./images/clear-day.png" alt="" srcset="">
+                  <span>-3</span>
+                </div>
+              </div>
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="preloader">
+      <div class="preloader--inner">
+        <img src="./loader/loader.gif" alt="" srcset="">
+        <span class="loading">weather is loading</span>
+      </div>
+    </div>
+  </body>
+</html>
