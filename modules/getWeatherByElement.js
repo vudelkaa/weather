@@ -1,4 +1,4 @@
-import {getWeather} from '../main.js';
+import {getWeather} from './getWeather.js';
 import { API_KEY } from '../config.js';
 
 
