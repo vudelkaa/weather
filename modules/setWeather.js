@@ -1,7 +1,8 @@
 import {isGeoError} from './geolocation.js';
 import {setBackgroungImg} from './setBackgroudImage.js';
+import {isCurrentLocation, falseCurrentLocation} from './geolocation.js'
 
-export const setWeather = (weather) => {
+export const setWeather = (temp, tempMax, tempMin, cityName, condition, id) => {
     const temperature = document.querySelector(
         '.weather-features--inner .temperature'
       ),
@@ -19,33 +20,49 @@ export const setWeather = (weather) => {
       ),
       temperatureRange = document.querySelector('.temperature--range');
   
-    temperature.textContent = Math.round(weather.main.temp) + '°';
-    temperatureRange.textContent = `H: ${Math.round(weather.main.temp_max)}  
-                                    L: ${Math.round(weather.main.temp_min)}`;
-    locationCity.textContent = weather.name;
-    conditionType.textContent = weather.weather[0].main;
+    temperature.textContent = Math.round(temp) + '°';
+    temperatureRange.textContent = `H: ${Math.round(tempMax)}  
+                                    L: ${Math.round(tempMin)}`;
+    locationCity.textContent = cityName;
+    conditionType.textContent = condition;
   
     const dateObject = getDate();
     locationDate.textContent = dateObject.stringDate;
   
-    let conditionTypeTransform = weather.weather[0].main.toLowerCase();
+    let conditionTypeTransform = condition.toLowerCase();
   
     conditionIcon.setAttribute(
       'src',
       `./images/${conditionTypeTransform}-${dateObject.dataPeriod}.png`
     );
   
-    setBackgroungImg(weather.weather[0].main, dateObject.dataPeriod);
+    setBackgroungImg(condition, dateObject.dataPeriod);
   
     const currentLocationItem = document.querySelector('.city-block .list-item');
   
     if (isGeoError) {
       currentLocationItem.hidden = true;
     }
+
+    if (isCurrentLocation) {
+      console.log('here');
+      let cachedGeo = JSON.parse(localStorage.getItem('cachedGeo'));
+      
+      cachedGeo.temp = temp;
+      cachedGeo.tempMax = tempMax;
+      cachedGeo.tempMin = tempMin; 
+      cachedGeo.cityName = cityName;
+      cachedGeo.condition = condition;
+      cachedGeo.id = id;
+      localStorage.setItem('cachedGeo', JSON.stringify(cachedGeo));
+      console.log(cachedGeo);
+      
+      falseCurrentLocation();
+    }
   
     if (!currentLocationItem.dataset.id) {
-      currentLocationItem.dataset.id = weather.id;
-      currentLocationItem.innerHTML = `<span>Current location - ${weather.name}</span>`
+      currentLocationItem.dataset.id = id;
+      currentLocationItem.innerHTML = `<span>Current location - ${cityName}</span>`
     }
   };
 

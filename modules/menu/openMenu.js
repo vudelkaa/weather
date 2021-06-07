@@ -1,10 +1,12 @@
-export const openMenu = () => {
-    const menu = document.querySelector('.weather-menu'),
+export let isMenuOpen = false;
+
+const menu = document.querySelector('.weather-menu'),
       menuButton = document.querySelector('.menu-icon');
     let menuButtonRight = 15;
-  
-    menuButton.addEventListener('click', () => {
+
+export const openMenuFunc = () => {
       menuButton.style.right = '15px';
+      isMenuOpen = !isMenuOpen;
   
       if (menuButtonRight <= 15) {
         menuButton.style.right = menuButtonRight + menu.clientWidth + 'px';
@@ -15,5 +17,9 @@ export const openMenu = () => {
       }
   
       menu.classList.toggle('open-menu');
-    });
+}
+
+export const openMenu = () => {
+  menuButton.addEventListener('click', openMenuFunc);
 };
+
