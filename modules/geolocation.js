@@ -47,7 +47,7 @@ const fetchCoordinates = async () => {
         const {coords} = await getCurrentLocation(geoOptions);
         const {latitude, longitude} = coords;
 
-        currentGeoURL = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${API_KEY}`;
+        currentGeoURL = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${API_KEY}`;
         getWeather(currentGeoURL);
 
         cachedGeo.isCached = true;
