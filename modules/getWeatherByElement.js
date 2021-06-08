@@ -10,7 +10,7 @@ export const getWeatherByLocationElement = (list) => {
   
       let location = target.closest('li');
   
-      const url = `http://api.openweathermap.org/data/2.5/weather?id=${location.dataset.id}&units=metric&appid=${API_KEY}`;
+      const url = `https://api.openweathermap.org/data/2.5/weather?id=${location.dataset.id}&units=metric&appid=${API_KEY}`;
       getWeather(url);
   
       changeActiveClass(location);
