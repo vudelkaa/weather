@@ -18,7 +18,7 @@ const cityUL = document.querySelector('.city-block ul');
 localStorage.getItem('menuLocations') ? menuLocations = JSON.parse(localStorage.getItem('menuLocations')) : localStorage.setItem('menuLocations', []);
 
 (async function () {
-  const response = await fetch('/city_list.json');
+  const response = await fetch('city_list.json');
   const result = await response.json();
   cityList = result;
 })();
