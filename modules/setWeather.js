@@ -45,7 +45,6 @@ export const setWeather = (temp, tempMax, tempMin, cityName, condition, id) => {
     }
 
     if (isCurrentLocation) {
-      console.log('here');
       let cachedGeo = JSON.parse(localStorage.getItem('cachedGeo'));
       
       cachedGeo.temp = temp;
@@ -55,7 +54,6 @@ export const setWeather = (temp, tempMax, tempMin, cityName, condition, id) => {
       cachedGeo.condition = condition;
       cachedGeo.id = id;
       localStorage.setItem('cachedGeo', JSON.stringify(cachedGeo));
-      console.log(cachedGeo);
       
       falseCurrentLocation();
     }

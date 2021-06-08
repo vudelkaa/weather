@@ -62,7 +62,7 @@ const fetchCoordinates = async () => {
         const message = document.querySelector('.geolocation-message');
         message.hidden = false;
 
-        console.log(error);
+        console.error('Error CODE: '+ error.code + '. MESSAGE: ' + error.message);
         currentGeoURL = `http://api.openweathermap.org/data/2.5/weather?id=5128581&units=metric&appid=${API_KEY}`;
         getWeather(currentGeoURL);
     }
