@@ -22,9 +22,23 @@ export const addCity = () => {
     }
   
     function addCityToTheMenu(event) {
+      let isExist = false;
       let target = event.target;
+console.log(menuLocations);
+
   
       if (target.tagName !== 'LI') return;
+
+      menuLocations.forEach(item => {
+        if (item.id === target.dataset.id) {
+          isExist = true;
+        }
+      } );
+
+      if (isExist) {
+        input.value = '';
+        return;
+      }
   
       let countryName = target.textContent.split(' - ');
   
@@ -41,31 +55,22 @@ export const addCity = () => {
   
       input.value = '';
       setSearchBlockHeight(foundCities.length, infoBlock, true);
-      
     }
   
     const setSearchBlockHeight = (countCity, info, isBlur = false) => {
       if(countCity === 0 && !isBlur) { 
         info.style.display = 'flex'; 
         searchBlock.style.height = 85 + 'px';
-        console.log('here');
   
       } else if(isBlur) {
         searchBlock.style.height = 0 + 'px';
         info.style.display = 'none'; 
-        console.log('here 2');
-  
   
       } else {
         let blockHeight = 46 * countCity;
-        console.log(blockHeight + 'blockHeight');
   
         searchBlock.style.height = blockHeight + 'px';
         info.style.display = 'none'; 
-  
-  
-        console.log('here 3');
-  
       }
     }
   
